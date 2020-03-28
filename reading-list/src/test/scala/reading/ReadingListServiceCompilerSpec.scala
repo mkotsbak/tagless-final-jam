@@ -10,7 +10,7 @@ import scala.util.{Failure, Try}
 
 class ReadingListServiceCompilerSpec extends WordSpec with MustMatchers {
 
-  implicit val parallelForTry: Parallel[Try, Try] = Parallel.identity[Try]
+  implicit val parallelForTry: Parallel[Try] = Parallel.identity[Try]
 
   val userId = UserId("1")
   private def memoryFixture = new {

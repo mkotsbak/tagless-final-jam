@@ -4,8 +4,8 @@ version := "0.1"
 scalaVersion in ThisBuild := "2.12.8"
 scalacOptions in ThisBuild += "-Ypartial-unification"
 
-val CatsVersion       = "1.6.0"
-val CatsEffectVersion = "1.2.0"
+val CatsVersion       = "2.1.1"
+val CatsEffectVersion = "2.1.2"
 val CatsParVersion    = "0.2.1"
 val ScalaTestVersion  = "3.0.6"
 val Http4sVersion     = "0.20.0-RC1"
@@ -15,7 +15,9 @@ val commonSettings = Seq(
   libraryDependencies ++= Seq(
     "org.typelevel"     %% "cats-core"            % CatsVersion,
     "org.typelevel"     %% "cats-effect"          % CatsEffectVersion,
-    "io.chrisdavenport" %% "cats-par"             % CatsParVersion,
+//    "io.chrisdavenport" %% "cats-par"             % CatsParVersion,
+    "dev.zio" %% "zio" % "1.0.0-RC18-2",
+    "dev.zio" %% "zio-interop-cats" % "2.0.0.0-RC12",
     "org.http4s"        %% "http4s-circe"         % Http4sVersion,
     "org.http4s"        %% "http4s-dsl"           % Http4sVersion,
     "org.http4s"        %% "http4s-blaze-server"  % Http4sVersion,

@@ -1,7 +1,7 @@
 package reading
 
+import cats.Parallel
 import cats.implicits._
-import cats.temp.par._
 import reading.domain._
 
 import scala.language.higherKinds
@@ -13,7 +13,7 @@ object interpreters {
   /**
     * Here we define an implementation of the [[ReadingListService]] in terms of the [[UserRepository]] and [[BookRepository]]
     */
-  class ReadingListServiceCompiler[F[_]: Throwing: Par](users: UserRepository[F], books: BookRepository[F]) extends ReadingListService[F] {
+  class ReadingListServiceCompiler[F[_]: Throwing: Parallel](users: UserRepository[F], books: BookRepository[F]) extends ReadingListService[F] {
 
     override def getReadingList(userId: UserId): F[ReadingList] = {
       for {

@@ -83,7 +83,7 @@ object Server extends IOApp { self =>
 class ReadingListHttpService[F[_]: Sync](
     userRepository: UserRepository[F],
     bookRepository: BookRepository[F],
-    readingListService: ReadingListServiceCompiler[F])
+    readingListService: ReadingListService[F])
   extends Http4sDsl[F] {
 
   val service: HttpRoutes[F] = HttpRoutes.of[F] {
